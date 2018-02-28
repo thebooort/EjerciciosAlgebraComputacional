@@ -1,0 +1,809 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     26127,        800]
+NotebookOptionsPosition[     23532,        709]
+NotebookOutlinePosition[     23876,        724]
+CellTagsIndexPosition[     23833,        721]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Ejercicio 1:", "Title",
+ CellChangeTimes->{{3.655219465233945*^9, 3.6552194885822806`*^9}}],
+
+Cell["\<\
+Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
+trtar el problema desde el punto de vista de un grafo, en nuestro casoes de \
+la forma:\
+\>", "Text",
+ CellChangeTimes->{{3.6552195016260266`*^9, 3.655219540529252*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1", "<->", "3"}], ",", 
+    RowBox[{"2", "<->", "4"}], ",", 
+    RowBox[{"1", "<->", "4"}]}], "}"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 3, 2, 4}, {Null, {{1, 2}, {3, 4}, {1, 4}}}]], Typeset`boxes, 
+    Typeset`boxes$s2d = GraphicsGroupBox[{{
+       Directive[
+        Hue[0.6, 0.2, 0.8], 
+        EdgeForm[
+         Directive[
+          GrayLevel[0], 
+          Opacity[0.7]]]], 
+       TagBox[
+        DiskBox[{1., 4.898587196589413*^-16}, 0.030239520958083826`], 
+        "DynamicName", BoxID -> "VertexID$1"], 
+       TagBox[
+        DiskBox[{0., 6.123233995736766*^-16}, 0.030239520958083826`], 
+        "DynamicName", BoxID -> "VertexID$2"], 
+       TagBox[
+        DiskBox[{3., 0.}, 0.030239520958083826`], "DynamicName", BoxID -> 
+        "VertexID$3"], 
+       TagBox[
+        DiskBox[{2., 2.4492935982947064`*^-16}, 0.030239520958083826`], 
+        "DynamicName", BoxID -> "VertexID$4"]}, {
+       Directive[
+        Opacity[0.7], 
+        Hue[0.6, 0.7, 0.5]], 
+       LineBox[{{
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$2", Automatic, Center]}, {
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$4", Automatic, Center]}, {
+          DynamicLocation["VertexID$3", Automatic, Center], 
+          DynamicLocation["VertexID$4", Automatic, Center]}}]}}], 
+    Typeset`data}, 
+    TagBox[
+     DynamicBox[GraphComputation`NetworkGraphicsBox[
+      2, Typeset`graph, Typeset`boxes], {
+      CachedValue :> Typeset`boxes, SingleEvaluation -> True, 
+       SynchronousUpdating -> False, TrackedSymbols :> {}},
+      ImageSizeCache->{{6.180000000000003, 
+       352.81999999999994`}, {-7.107200000000004, 1.7033341420466321`}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False,
+    UnsavedVariables:>{Typeset`data}]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.6552195539420185`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Observese que los vertices estan en la siguiente disposicion: x3,x1,x4,x2, 
+As\[IAcute] planteamos la solucion usando las raices cuartas de la unidad, en \
+este cuerpo, las dos posibles ecuaciones que deben cumplirse son:\
+\>", "Text",
+ CellChangeTimes->{{3.655219562409503*^9, 3.6552195839157333`*^9}, {
+  3.6552196307804136`*^9, 3.6552197093779097`*^9}, {3.655219771736476*^9, 
+  3.6552197743966284`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f1", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"x", "^", "4"}], "-", "1"}]}]], "Input",
+ CellChangeTimes->{{3.655219724685785*^9, 3.6552197247697897`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f2", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"x", "^", "3"}], "+", 
+   RowBox[{
+    RowBox[{"x", "^", "2"}], "*", "y"}], "+", 
+   RowBox[{"x", "*", 
+    RowBox[{"y", "^", "2"}]}], "+", 
+   RowBox[{"y", "^", "3"}]}]}]], "Input",
+ CellChangeTimes->{3.6552197371674986`*^9}],
+
+Cell["\<\
+Llamando a los vertices x1,x2,x3,x4, procedemos a calcular la base de \
+Groebner asociada\
+\>", "Text",
+ CellChangeTimes->{{3.6552197541214685`*^9, 3.6552197890284653`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Gb", "=", 
+  RowBox[{"GroebnerBasis", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"f1", "[", "x1", "]"}], ",", 
+      RowBox[{"f1", "[", "x2", "]"}], ",", 
+      RowBox[{"f1", "[", "x3", "]"}], ",", 
+      RowBox[{"f1", "[", "x4", "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x3"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x4"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x2", ",", "x4"}], "]"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6552198094386325`*^9, 3.6552198147799377`*^9}, {
+  3.6552202684927473`*^9, 3.6552202699747496`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x4", "4"]}], ",", 
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x3", "4"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x2", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x2", "2"], " ", "x4"}], "+", 
+    RowBox[{"x2", " ", 
+     SuperscriptBox["x4", "2"]}], "+", 
+    SuperscriptBox["x4", "3"]}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["x1", "2"], " ", "x3"}], "+", 
+    RowBox[{"x1", " ", 
+     SuperscriptBox["x3", "2"]}], "+", 
+    SuperscriptBox["x3", "3"], "-", 
+    RowBox[{
+     SuperscriptBox["x1", "2"], " ", "x4"}], "-", 
+    RowBox[{"x1", " ", 
+     SuperscriptBox["x4", "2"]}], "-", 
+    SuperscriptBox["x4", "3"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x1", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x1", "2"], " ", "x4"}], "+", 
+    RowBox[{"x1", " ", 
+     SuperscriptBox["x4", "2"]}], "+", 
+    SuperscriptBox["x4", "3"]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.655219822838399*^9, 3.6552202713007517`*^9, 
+  3.6552240462101765`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Y estudiamos las posibles coloraciones:
+\t-de la primera y segunda ecuacion obtenemos 4 posibles soluciones
+\t-la segunda ecuacion nos determina x2, con tres posibles soluciones
+\t-las dos ultimas determinan x1 que puede tener 3 o 2 soluciones en funcion \
+de si x3 o x4 son la misma raiz
+El numero total de soluciones ser\[AAcute] por tanto:\
+\>", "Text",
+ CellChangeTimes->{{3.6552198433215704`*^9, 3.6552198778975477`*^9}, {
+  3.6552201973177795`*^9, 3.6552202573248863`*^9}, {3.6552203872323837`*^9, 
+  3.655220397186201*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"Gb", "\[Equal]", "0"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.655220274313557*^9, 3.655220274641158*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "S", "]"}]], "Input",
+ CellChangeTimes->{{3.6552202819921722`*^9, 3.6552202862217793`*^9}}],
+
+Cell[BoxData["108"], "Output",
+ CellChangeTimes->{3.65522028668978*^9}]
+}, Open  ]],
+
+Cell["\<\
+Aunque el numero de soluciones es 108 se puede tener en cuenta que algunas \
+solucion tienen ditribucion id\[EAcute]ntica, lo cual hace disminuir este \
+numero.\
+\>", "Text",
+ CellChangeTimes->{{3.655220304477812*^9, 3.6552203544702997`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ejercicio 2:", "Title",
+ CellChangeTimes->{{3.6552203690585413`*^9, 3.6552203724613476`*^9}}],
+
+Cell["\<\
+Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
+trtar el problema desde el punto de vista de un grafo, en nuestro casoes de \
+la forma:\
+\>", "Text",
+ CellChangeTimes->{3.655220780647962*^9}],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.6552207873559732`*^9, 3.6552207921689825`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1", "<->", "3"}], ",", 
+    RowBox[{"3", "<->", "4"}], ",", 
+    RowBox[{"1", "<->", "4"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.655220793962986*^9, 3.655220793962986*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 3, 4}, {Null, {{1, 2}, {2, 3}, {1, 3}}}]], Typeset`boxes, 
+    Typeset`boxes$s2d = GraphicsGroupBox[{{
+       Directive[
+        Hue[0.6, 0.2, 0.8], 
+        EdgeForm[
+         Directive[
+          GrayLevel[0], 
+          Opacity[0.7]]]], 
+       TagBox[
+        DiskBox[{0.866025403784439, 0.49999999999999994`}, 
+         0.0139455782312925], "DynamicName", BoxID -> "VertexID$1"], 
+       TagBox[
+        DiskBox[{3.885780586188048*^-16, 1.}, 0.0139455782312925], 
+        "DynamicName", BoxID -> "VertexID$2"], 
+       TagBox[
+        DiskBox[{0., 0.}, 0.0139455782312925], "DynamicName", BoxID -> 
+        "VertexID$3"]}, {
+       Directive[
+        Opacity[0.7], 
+        Hue[0.6, 0.7, 0.5]], 
+       LineBox[{{
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$2", Automatic, Center]}, {
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$3", Automatic, Center]}, {
+          DynamicLocation["VertexID$2", Automatic, Center], 
+          DynamicLocation["VertexID$3", Automatic, Center]}}]}}], 
+    Typeset`data}, 
+    TagBox[
+     DynamicBox[GraphComputation`NetworkGraphicsBox[
+      2, Typeset`graph, Typeset`boxes], {
+      CachedValue :> Typeset`boxes, SingleEvaluation -> True, 
+       SynchronousUpdating -> False, TrackedSymbols :> {}},
+      ImageSizeCache->{{6.179999999999997, 352.82}, {-201.10720000000006`, 
+       197.18527730389005`}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False,
+    UnsavedVariables:>{Typeset`data}]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.6552207943841867`*^9}]
+}, Open  ]],
+
+Cell["\<\
+*NOTESE QUE FALTA EL VERTICE X2, PERO AL NO TENER NINGUNA ARISTA QUE LO \
+CONECTE CON OTROS VERTICES MATHEMATICA NO LO REPRESENTA\
+\>", "Text",
+ CellChangeTimes->{{3.655220800813398*^9, 3.6552208379640636`*^9}}],
+
+Cell["\<\
+As\[IAcute] planteamos la solucion usando las raices cuartas de la unidad, en \
+este cuerpo, las dos posibles ecuaciones que deben cumplirse son, las mismas \
+que en el ejercicio anterior, las recordamos con dos ejemplos:\
+\>", "Text",
+ CellChangeTimes->{
+  3.6552208564390106`*^9, {3.6552209220837655`*^9, 3.6552209358435526`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f1", "[", "x1", "]"}]], "Input",
+ CellChangeTimes->{{3.6552208877468014`*^9, 3.6552208987914333`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", 
+  SuperscriptBox["x1", "4"]}]], "Output",
+ CellChangeTimes->{3.6552208991114516`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f2", "[", 
+  RowBox[{"x1", ",", "x3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6552209055558205`*^9, 3.655220915951415*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["x1", "3"], "+", 
+  RowBox[{
+   SuperscriptBox["x1", "2"], " ", "x3"}], "+", 
+  RowBox[{"x1", " ", 
+   SuperscriptBox["x3", "2"]}], "+", 
+  SuperscriptBox["x3", "3"]}]], "Output",
+ CellChangeTimes->{{3.65522091008908*^9, 3.655220918173542*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Llamando a los vertices x1,x2,x3,x4, procedemos a calcular la base de \
+Groebner asociada\
+\>", "Text",
+ CellChangeTimes->{3.655220957717804*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GB", "=", 
+  RowBox[{"GroebnerBasis", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"f1", "[", "x1", "]"}], ",", 
+      RowBox[{"f1", "[", "x2", "]"}], ",", 
+      RowBox[{"f1", "[", "x3", "]"}], ",", 
+      RowBox[{"f1", "[", "x4", "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x3"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x4"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x3", ",", "x4"}], "]"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.655220970054509*^9, 3.655220986394444*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x4", "4"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x3", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x3", "2"], " ", "x4"}], "+", 
+    RowBox[{"x3", " ", 
+     SuperscriptBox["x4", "2"]}], "+", 
+    SuperscriptBox["x4", "3"]}], ",", 
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x2", "4"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x1", "2"], "+", 
+    RowBox[{"x1", " ", "x3"}], "+", 
+    SuperscriptBox["x3", "2"], "+", 
+    RowBox[{"x1", " ", "x4"}], "+", 
+    RowBox[{"x3", " ", "x4"}], "+", 
+    SuperscriptBox["x4", "2"]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.65522098807654*^9}]
+}, Open  ]],
+
+Cell["\<\
+Siguendo igual procedimiento que antes:\
+\>", "Text",
+ CellChangeTimes->{{3.6552210104718213`*^9, 3.655221017260209*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s2", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"GB", "\[Equal]", "0"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6552210261187162`*^9, 3.655221027784811*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "s2", "]"}]], "Input",
+ CellChangeTimes->{{3.6552210394094763`*^9, 3.655221040823557*^9}}],
+
+Cell[BoxData["96"], "Output",
+ CellChangeTimes->{3.6552210413005843`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Aunque el numero de soluciones es 96 se puede tener en cuenta que algunas \
+solucion tienen ditribucion id\[EAcute]ntica, lo cual hace disminuir este \
+numero, podr\[IAcute]a tratar en este caso de dividirlo entre 4!, quedandonos \
+un resultado de 4 coloraciones esencialmente distintas\
+\>", "Text",
+ CellChangeTimes->{{3.6552210554043913`*^9, 3.6552210868231883`*^9}, {
+  3.6552211273975086`*^9, 3.6552211367250423`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ejercicio 3:", "Title",
+ CellChangeTimes->{{3.6552211658497086`*^9, 3.6552211712060146`*^9}}],
+
+Cell["\<\
+Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
+trtar el problema desde el punto de vista de un grafo, pero , en este caso \
+tenemos que uno de ellos debe durar el doble de los demas.
+Nos vamos a ayudar para ello de un vertice auxiliar, que llamaremos A\
+\[CloseCurlyQuote] y cumplira las mismas restricciones que A en el caso uno. \
+Lo uniremos tambien a A puesto que queremos considerar el caso que, tras \
+apagarse A, se encienda A\[CloseCurlyQuote], doblando el tiempo que este \
+semaforo est\[AAcute] encendido. Dibujamos el grafo:\
+\>", "Text",
+ CellChangeTimes->{{3.655223298951926*^9, 3.655223319003962*^9}, {
+  3.655223455582729*^9, 3.6552235394804783`*^9}, {3.6552236490402718`*^9, 
+  3.6552236796701264`*^9}}],
+
+Cell["", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1", "<->", "3"}], ",", 
+    RowBox[{"2", "<->", "4"}], ",", 
+    RowBox[{"1", "<->", "4"}], ",", 
+    RowBox[{"1", "<->", "5"}], ",", 
+    RowBox[{"5", "<->", "4"}], ",", 
+    RowBox[{"5", "<->", "3"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.655223705041771*^9, 3.655223746064244*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 3, 2, 4, 5}, {
+      Null, {{1, 2}, {3, 4}, {1, 4}, {1, 5}, {5, 4}, {5, 2}}}]], 
+    Typeset`boxes, Typeset`boxes$s2d = GraphicsGroupBox[{{
+       Directive[
+        Hue[0.6, 0.2, 0.8], 
+        EdgeForm[
+         Directive[
+          GrayLevel[0], 
+          Opacity[0.7]]]], 
+       TagBox[
+        DiskBox[{0.8868948237981666, 0.7465611779628856}, 
+         0.03045194108600499], "DynamicName", BoxID -> "VertexID$1"], 
+       TagBox[
+        DiskBox[{0., 0.3738930849258439}, 0.03045194108600499], "DynamicName",
+         BoxID -> "VertexID$2"], 
+       TagBox[
+        DiskBox[{3.0296735569653674`, 0.37338126438782804`}, 
+         0.03045194108600499], "DynamicName", BoxID -> "VertexID$3"], 
+       TagBox[
+        DiskBox[{1.890169026198639, 0.37293805264335717`}, 
+         0.03045194108600499], "DynamicName", BoxID -> "VertexID$4"], 
+       TagBox[
+        DiskBox[{0.8846486573042011, 0.}, 0.03045194108600499], "DynamicName",
+         BoxID -> "VertexID$5"]}, {
+       Directive[
+        Opacity[0.7], 
+        Hue[0.6, 0.7, 0.5]], 
+       LineBox[{{
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$2", Automatic, Center]}, {
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$4", Automatic, Center]}, {
+          DynamicLocation["VertexID$1", Automatic, Center], 
+          DynamicLocation["VertexID$5", Automatic, Center]}, {
+          DynamicLocation["VertexID$2", Automatic, Center], 
+          DynamicLocation["VertexID$5", Automatic, Center]}, {
+          DynamicLocation["VertexID$3", Automatic, Center], 
+          DynamicLocation["VertexID$4", Automatic, Center]}, {
+          DynamicLocation["VertexID$4", Automatic, Center], 
+          DynamicLocation["VertexID$5", Automatic, Center]}}]}}], 
+    Typeset`data}, 
+    TagBox[
+     DynamicBox[GraphComputation`NetworkGraphicsBox[
+      2, Typeset`graph, Typeset`boxes], {
+      CachedValue :> Typeset`boxes, SingleEvaluation -> True, 
+       SynchronousUpdating -> False, TrackedSymbols :> {}},
+      ImageSizeCache->{{6.18, 352.82}, {-49.1072, 42.93576569335065}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False,
+    UnsavedVariables:>{Typeset`data}]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.655223747811447*^9}]
+}, Open  ]],
+
+Cell["\<\
+Y procedemos exactamente igual que el los casos anteriores:\
+\>", "Text",
+ CellChangeTimes->{{3.6552212969442425`*^9, 3.6552212969442425`*^9}, {
+  3.655223281443695*^9, 3.655223292493515*^9}, {3.6552237619002714`*^9, 
+  3.6552237712038884`*^9}, {3.655223801569542*^9, 3.655223813897564*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Gb3", "=", 
+  RowBox[{"GroebnerBasis", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"f1", "[", "x1", "]"}], ",", 
+      RowBox[{"f1", "[", "x2", "]"}], ",", 
+      RowBox[{"f1", "[", "x3", "]"}], ",", 
+      RowBox[{"f1", "[", "x4", "]"}], ",", 
+      RowBox[{"f1", "[", "x5", "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x3"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x4"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x2", ",", "x4"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x5", ",", "x3"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x5", ",", "x4"}], "]"}], ",", 
+      RowBox[{"f2", "[", 
+       RowBox[{"x1", ",", "x5"}], "]"}]}], "}"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.655223835759203*^9, 3.655223837038405*^9}, {
+  3.6552238907769003`*^9, 3.6552239483630023`*^9}, {3.6552240081981077`*^9, 
+  3.6552240347769556`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x5", "4"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x4", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x4", "2"], " ", "x5"}], "+", 
+    RowBox[{"x4", " ", 
+     SuperscriptBox["x5", "2"]}], "+", 
+    SuperscriptBox["x5", "3"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x3", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x3", "2"], " ", "x5"}], "+", 
+    RowBox[{"x3", " ", 
+     SuperscriptBox["x5", "2"]}], "+", 
+    SuperscriptBox["x5", "3"]}], ",", 
+   RowBox[{
+    SuperscriptBox["x2", "3"], "+", 
+    RowBox[{
+     SuperscriptBox["x2", "2"], " ", "x4"}], "+", 
+    RowBox[{"x2", " ", 
+     SuperscriptBox["x4", "2"]}], "-", 
+    RowBox[{
+     SuperscriptBox["x4", "2"], " ", "x5"}], "-", 
+    RowBox[{"x4", " ", 
+     SuperscriptBox["x5", "2"]}], "-", 
+    SuperscriptBox["x5", "3"]}], ",", 
+   RowBox[{
+    RowBox[{"x1", " ", "x3"}], "+", 
+    SuperscriptBox["x3", "2"], "-", 
+    RowBox[{"x1", " ", "x4"}], "-", 
+    SuperscriptBox["x4", "2"], "+", 
+    RowBox[{"x3", " ", "x5"}], "-", 
+    RowBox[{"x4", " ", "x5"}]}], ",", 
+   RowBox[{
+    SuperscriptBox["x1", "2"], "+", 
+    RowBox[{"x1", " ", "x4"}], "+", 
+    SuperscriptBox["x4", "2"], "+", 
+    RowBox[{"x1", " ", "x5"}], "+", 
+    RowBox[{"x4", " ", "x5"}], "+", 
+    SuperscriptBox["x5", "2"]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6552240244905367`*^9, 3.6552240372417593`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s3", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"Gb3", "\[Equal]", "0"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5"}], "}"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.655224075501428*^9, 3.655224079918236*^9}, {
+  3.6552241173663025`*^9, 3.655224118756705*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "s3", "]"}]], "Input",
+ CellChangeTimes->{{3.6552240925406585`*^9, 3.655224105586282*^9}}],
+
+Cell[BoxData["144"], "Output",
+ CellChangeTimes->{{3.655224105898282*^9, 3.655224121299509*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Podemos intentar reducir como en el caso anterior a traves de la division de \
+4!, quedandonos esencialmente 6 casos distintos.
+\
+\>", "Text",
+ CellChangeTimes->{{3.655224258471753*^9, 3.655224289306408*^9}, 
+   3.655224320670463*^9}],
+
+Cell["\<\
+------------------------------------------------------------------------------\
+------------------------------------------------------------------------------\
+------------------------------------------------------------------------------\
+---------------------------------------------------------------------------\
+\>", "Text",
+ CellChangeTimes->{{3.655224708017376*^9, 3.6552247230266027`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Adendum:", "Subtitle",
+ CellChangeTimes->{{3.655224313804451*^9, 3.6552243163628554`*^9}}],
+
+Cell["\<\
+Se podr\[IAcute]a haber intentado el ejercicio utlizando como cuerpo F4, en \
+este caso deberiamos definir las funciones como siguen:
+
+f1[x_]:=x^4-x
+
+f2[x_,y_]:=x^3+x^2*y+x*y^2+y^3-1
+
+Calcular la base de Groebner igual que antes y evaluar cuando tenemos una \
+solucion (es decir, los polinomios de la base se anulan) evaluando todas las \
+posibles combinaciones de los elementos de F4, esto lo hariamos tal que as\
+\[IAcute]:
+\t-Combinaciones de Elementos
+\t
+Lista= Permutations[{0,0,0,0,1,1,1,1,a,a,a,a,a+1,a+1,a+1,a+1},{4}]
+
+\t-Polinomios de la base de groebner
+a[x_,y_,z_,w_]:=w^4-w
+b[x_,y_,z_,w_]:=z^4-z
+c[x_,y_,z_,w_]:=1+y^3+y^2*w+y*w^2+w^3
+d[x_,y_,z_,w_]:=x^2*z+x*z^2+z^3+x^2*w+x+w^2+w^3
+e[x_,y_,z_,w_]:=1+x^3+x^2*w+x*w^2+w^3
+
+\t-Evaluacion
+For[k=2,k\[LessEqual]255,k++,       
+\t{z,x,q,o}=Lista[[k]]
+  \t    If[
+   \t   \t a[z,x,q,o]\[Equal]0&&
+\t\tb[z,x,q,o]\[Equal]0&&
+\t\tc[z,x,q,o]\[Equal]0&&
+\t\td[z,x,q,o]\[Equal]0&&
+\t\te[z,x,q,o]\[Equal]0,
+\t\tPrint[k]
+\t\t]
+]
+
+
+\
+\>", "Text",
+ CellChangeTimes->{{3.6552243254908714`*^9, 3.655224644008063*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1350, 673},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 97, 1, 83, "Title"],
+Cell[679, 25, 258, 5, 29, "Text"],
+Cell[CellGroupData[{
+Cell[962, 34, 196, 6, 31, "Input"],
+Cell[1161, 42, 2022, 48, 37, "Output"]
+}, Open  ]],
+Cell[3198, 93, 417, 7, 47, "Text"],
+Cell[3618, 102, 195, 5, 31, "Input"],
+Cell[3816, 109, 338, 11, 31, "Input"],
+Cell[4157, 122, 183, 4, 29, "Text"],
+Cell[CellGroupData[{
+Cell[4365, 130, 747, 20, 31, "Input"],
+Cell[5115, 152, 1084, 35, 33, "Output"]
+}, Open  ]],
+Cell[6214, 190, 540, 10, 101, "Text"],
+Cell[6757, 202, 305, 9, 31, "Input"],
+Cell[CellGroupData[{
+Cell[7087, 215, 129, 2, 31, "Input"],
+Cell[7219, 219, 71, 1, 30, "Output"]
+}, Open  ]],
+Cell[7305, 223, 252, 5, 29, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7594, 233, 99, 1, 83, "Title"],
+Cell[7696, 236, 232, 5, 29, "Text"],
+Cell[7931, 243, 86, 1, 29, "Text"],
+Cell[CellGroupData[{
+Cell[8042, 248, 262, 7, 31, "Input"],
+Cell[8307, 257, 1877, 45, 426, "Output"]
+}, Open  ]],
+Cell[10199, 305, 221, 4, 29, "Text"],
+Cell[10423, 311, 342, 6, 29, "Text"],
+Cell[CellGroupData[{
+Cell[10790, 321, 126, 2, 31, "Input"],
+Cell[10919, 325, 137, 4, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11093, 334, 148, 3, 31, "Input"],
+Cell[11244, 339, 285, 8, 30, "Output"]
+}, Open  ]],
+Cell[11544, 350, 155, 4, 29, "Text"],
+Cell[CellGroupData[{
+Cell[11724, 358, 690, 19, 31, "Input"],
+Cell[12417, 379, 708, 23, 33, "Output"]
+}, Open  ]],
+Cell[13140, 405, 131, 3, 29, "Text"],
+Cell[13274, 410, 308, 9, 31, "Input"],
+Cell[CellGroupData[{
+Cell[13607, 423, 128, 2, 31, "Input"],
+Cell[13738, 427, 73, 1, 30, "Output"]
+}, Open  ]],
+Cell[13826, 431, 433, 7, 47, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14296, 443, 99, 1, 83, "Title"],
+Cell[14398, 446, 761, 12, 65, "Text"],
+Cell[15162, 460, 16, 0, 29, "Text"],
+Cell[CellGroupData[{
+Cell[15203, 464, 373, 10, 31, "Input"],
+Cell[15579, 476, 2557, 57, 120, "Output"]
+}, Open  ]],
+Cell[18151, 536, 301, 5, 29, "Text"],
+Cell[CellGroupData[{
+Cell[18477, 545, 1071, 28, 31, "Input"],
+Cell[19551, 575, 1452, 45, 33, "Output"]
+}, Open  ]],
+Cell[21018, 623, 371, 10, 31, "Input"],
+Cell[CellGroupData[{
+Cell[21414, 637, 128, 2, 31, "Input"],
+Cell[21545, 641, 96, 1, 30, "Output"]
+}, Open  ]],
+Cell[21656, 645, 244, 6, 47, "Text"],
+Cell[21903, 653, 407, 6, 29, "Text"],
+Cell[CellGroupData[{
+Cell[22335, 663, 96, 1, 49, "Subtitle"],
+Cell[22434, 666, 1070, 39, 605, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
