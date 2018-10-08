@@ -98,8 +98,8 @@ Cell[BoxData[
 
 Cell["\<\
 Aunque en este caso se puede ver que x^2/4 + y^2 = 1 que viene de elevar al \
-cuadrado y usar la igualdad trigonometrica basica, verifica nuestras \
-ecuaciones, asique operamos con esa
+cuadrado y usar la igualdad trigonom\[EAcute]trica b\[AAcute]sica, verifica nuestras \
+ecuaciones, as\[IAcute] que operamos con esa
 
 
 (2) Dibuja esta curva mediante la orden de Mathematica \
@@ -1313,7 +1313,7 @@ f4q/aQirH/v//z+I6FzxpX96vwAAAAAAAABACoqeTDl5yrypROsr
 
 Cell["\<\
 en cada caso las ecuaciones obtenidas corresponde a la forma
-ArcSin[y]/a = ArCos[x]/2 siendo a el parametro buscado\
+ArcSin[y]/a = ArCos[x]/2 siendo a el par\[AAcute]metro buscado\
 \>", "Input",
  CellChangeTimes->{{3.654263641349702*^9, 3.654263707714628*^9}, {
   3.6542639395598383`*^9, 3.6542639412758417`*^9}},

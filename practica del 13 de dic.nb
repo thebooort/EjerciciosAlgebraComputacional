@@ -20,7 +20,7 @@ WindowFrame->Normal*)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["Ejercicio de Interpolacion", "Title",
+Cell["Ejercicio de Interpolaci\[OAcute]n", "Title",
  CellChangeTimes->{{3.659031480190362*^9, 3.659031518981143*^9}}],
 
 Cell["\<\
@@ -40,7 +40,7 @@ D_Y, en los puntos indicados, comenzando por la ra\[IAcute]z 1 y recorri\
 Cell[CellGroupData[{
 
 Cell["\<\
-Definimos en primer lugar la funcion de interpolacion\
+Definimos en primer lugar la funcion de interpolaci\[OAcute]n\
 \>", "Subtitle",
  CellChangeTimes->{{3.659031567229464*^9, 3.6590315799252872`*^9}}],
 
@@ -90,7 +90,7 @@ Cell[CellGroupData[{
 
 Cell["\<\
 Creamos una peque\[NTilde]a lista de los puntos a tratar, las raices octavas \
-de la unidad en sentido antihorario, valores en los cuales nuestra funcion \
+de la unidad en sentido antihorario, valores en los cuales nuestra funci\[OAcute]n \
 toma los valores antes indicados\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.6590315889561253`*^9, 3.6590316390986567`*^9}}],
@@ -193,7 +193,7 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell["\<\
-Calculamos la interseccion de ideales\
+Calculamos la intersecci\[OAcute]n de ideales\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.659031736256667*^9, 3.659031751594494*^9}}],
 
@@ -394,8 +394,8 @@ puntos dados, sin embargo, basta llegar al segundo para ver que ",
  StyleBox["eso no ocurre",
   FontWeight->"Bold",
   FontColor->RGBColor[1, 0, 0]],
- StyleBox[", he intentado varios o modificaciones, pero sin exito, pues no \
-parece haber ningun error en el codigo",
+ StyleBox[", he intentado varios o modificaciones, pero sin \[EAcute]xito, pues no \
+parece haber ning\[UAcute]n error en el c\[OAcute]digo",
   FontColor->RGBColor[1, 0, 0]]
 }], "Subsubtitle",
  CellChangeTimes->{{3.6590317623771133`*^9, 3.659031854037775*^9}}],
@@ -431,7 +431,7 @@ Cell[CellGroupData[{
 
 Cell["\<\
 El ejercicio continuar\[IAcute]a definiendo la base del anillo cociente y la \
-forma generica de un representante de la misma\
+forma gen\[EAcute]rica de un representante de la misma\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.659031857567382*^9, 3.6590318857606316`*^9}}],
 
@@ -502,7 +502,7 @@ Cell[CellGroupData[{
 
 Cell["\<\
 Finalmente vemos que al evaluar nuestro polinomio PP en los puntos, deben \
-salir los valores dados asi pues, tenemos este sistema de ecuaciones\
+salir los valores dados as\[IAcute] pues, tenemos este sistema de ecuaciones\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.659031912366132*^9, 3.6590319610004177`*^9}}],
 
@@ -654,9 +654,9 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell["\<\
-Como observamos mas arriba ( y como era de esperar por el anterior fallo) el \
-resultado es erroneo, pues solo nos da el conjunto vacio , es decir no \
-tenemos soluciones. A partir de aqui imponer las condiciones de las \
+Como observamos mas arriba (y como era de esperar por el anterior fallo) el \
+resultado es err\[OAcute]neo, pues solo nos da el conjunto vac\[IAcute]o , es decir no \
+tenemos soluciones. A partir de aqu\[IAcute] imponer las condiciones de las \
 derivadas, como por ejemplo:\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.6590319939015613`*^9, 3.6590320692148943`*^9}}],
@@ -692,9 +692,9 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell["\<\
-Obtenida de l primera ligadura mediante el procedimiento expuesto en el \
-archivo de interpolacion. Sin embargo estas se a\[NTilde]adirian las que y \
-tenemos y, como hemos visto, carec\[IAcute]an de solucion.\
+Obtenida de la primera ligadura mediante el procedimiento expuesto en el \
+archivo de interpolaci\[OAcute]n. Sin embargo estas se a\[NTilde]adirian las que y \
+tenemos y, como hemos visto, carec\[IAcute]an de soluci\[OAcute]n.\
 \>", "Subsubtitle",
  CellChangeTimes->{{3.6590321612840214`*^9, 3.65903226088764*^9}}]
 }, Open  ]]

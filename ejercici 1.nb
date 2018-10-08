@@ -481,8 +481,8 @@ Cell["\<\
 la orden de Mathematica \[OpenCurlyDoubleQuote]ContourPlot\
 \[CloseCurlyDoubleQuote]:
 
-utilizamos la expresion de igualar ambos miembro anteriores, obetniendo la \
-funcion a trozos:\
+utilizamos la expresi\[OAcute]n de igualar ambos miembros anteriores, obteniendo la \
+funci\[OAcute]n a trozos:\
 \>", "Input",
  CellChangeTimes->{{3.654256547220479*^9, 3.6542565649194913`*^9}, {
   3.6542566701005073`*^9, 3.654256737546365*^9}, {3.654257569937975*^9, 

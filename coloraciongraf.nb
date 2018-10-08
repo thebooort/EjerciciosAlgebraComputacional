@@ -21,10 +21,10 @@ Notebook[{
 Cell["\<\
 Estudiar la coloraci\[OAcute]n, con cuatro colores, de ejemplos de grafos \
 propuestos por vosotros
-mismos.Primero estudiar si es posible colorearlos y, en caso afirmativo, cu\
+mismos. Primero estudiar si es posible colorearlos y, en caso afirmativo, cu\
 \[AAcute]ntas
 coloraciones distintas existen y cu\[AAcute]ntas salvo permutaci\[OAcute]n de \
-los colores.Problema 2. En este caso podemos utilizar tanto F 4, el cuerpo de \
+los colores. Problema 2. En este caso podemos utilizar tanto F4, el cuerpo de \
 cuatro elementos, como C, haciendo uso de las ra\[IAcute]ces cuartas de la \
 unidad.
 
@@ -112,9 +112,9 @@ Cell[BoxData[
 
 Cell[TextData[{
  "En una temprana observacion podemos ver que este grafo admite una \
-coloracion con 4 colores, basandonos simplemente en la experimentacion \
-visual.\nVamos a trabajar con el cuerpo de las raices cuarta de la unidad: 1, \
-w, w^2, w^3\nAsi tendremos dos tipo de relaciones:\n\n          x_i^4=1 \n\n\
+coloraci\[OAcute]n con 4 colores, bas\[AAcute]ndonos simplemente en la experimentaci\[OAcute]n \
+visual.\nVamos a trabajar con el cuerpo de las ra\[IAcute]ces cuarta de la unidad: 1, \
+w, w^2, w^3\nAs\[IAcute] tendremos dos tipos de relaciones:\n\n          x_i^4=1 \n\n\
 y, operando como sigue\n(xi^4-xj^4=0 => (xi-xj)(",
  Cell[BoxData[
   RowBox[{
@@ -281,12 +281,12 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell["\<\
-en la primera tenemos 4 posibles soluciones, para la segunda ecuacion, por \
-cada solucion tenemos 3 valores de x4, por cada una de estas tenemos 2 \
+en la primera tenemos 4 posibles soluciones, para la segunda ecuaci\[OAcute]n, por \
+cada soluci\[OAcute]n tenemos 3 valores de x4, por cada una de \[EAcute]stas tenemos 2 \
 valores de x3, finalmente, nos queda determinado un solo valor para x2 y x1. \
 En total, tenemos una cantidad de 24 posibles coloraciones del grafo.
 
-A\[NTilde]adiendole otra arista mas, el grafo:
+A\[NTilde]adiendole otra arista m\[AAcute]s, el grafo:
 
 \
 \>", "Input",
@@ -383,7 +383,7 @@ sique siendo coloreable con 4 colores, como se puede observar por el mismo \
 procedimiento anterior.
 
 Sin embargo al a\[NTilde]adir otro segmento, esto no ocurre, como mostramos a \
-continuacion:\
+continuaci\[OAcute]n:\
 \>", "Input",
  CellChangeTimes->{{3.654695311206386*^9, 3.6546954581557913`*^9}, {
   3.6546959191451583`*^9, 3.654695920843255*^9}},
@@ -618,4 +618,3 @@ Cell[20724, 570, 113, 2, 30, "Output"]
 *)
 
 (* End of internal cache information *)
-
