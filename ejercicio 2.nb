@@ -277,8 +277,8 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell[TextData[{
- "tomaremos solo las reales onteniendo dos parametrizaciones (de dos colas) \
-segun el signo ( lo pongo con los parametros del enunciado) :",
+ "tomaremos solo las reales obteniendo dos parametrizaciones (de dos colas) \
+seg\[UAcute]n el signo ( lo pongo con los parametros del enunciado) :",
  Cell[BoxData[
   FractionBox[
    RowBox[{"a", " ", 
@@ -883,7 +883,7 @@ RFgGIUppz+grfTX8v/8C/gNInwnK
 }, Open  ]],
 
 Cell["\<\
-(3) Evaluamos con counterplot evaluamos segun a\
+(3) Evaluamos con counterplot seg\[UAcute]n a\
 \>", "Input",
  CellChangeTimes->{{3.6542622526064043`*^9, 3.6542622745726604`*^9}, {
   3.6542623539332*^9, 3.654262357561407*^9}},
@@ -1031,4 +1031,3 @@ Cell[41109, 967, 348, 12, 394, "Output"]
 *)
 
 (* End of internal cache information *)
-

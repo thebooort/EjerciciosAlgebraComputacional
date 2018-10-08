@@ -423,13 +423,13 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell[TextData[{
- "Consideramos un caso con dos ecuaciones, la extension a un programa para \
+ "Consideramos un caso con dos ecuaciones, la extensi\[OAcute]n a un programa para \
 mas ecuaciones u otro cuerpo, pasa por redefinir lo que hemos llamado Lista1 \
 o Lista2 para los elementos del cuerpo que estemos considerando y redefinir \
 las funciones\nLF1 y LF11 si estamos en otro cuerpo, o a\[NTilde]adir mas si \
-tenemos un mayor numero de ecuaciones.\nEn este ultimo caso, con N \
+tenemos un mayor n\[UAcute]mero de ecuaciones.\nEn este ultimo caso, con N \
 ecuaciones, simplemente iterar\[IAcute]amos el ciclo de Aux final de 1 a N \
-tal que asi:\n",
+tal que as\[IAcute]:\n",
  Cell[BoxData[
   RowBox[{"\[IndentingNewLine]", 
    RowBox[{
@@ -539,7 +539,7 @@ Cell[BoxData[
 Cell["\<\
 Una vez terminado esto definimos las funciones que queremos resolver y les \
 aplicamos LF1 y LF11.
-Evaluamos en la primera ecuacion todos los posibles valores:\
+Evaluamos en la primera ecuaci\[OAcute]n todos los posibles valores:\
 \>", "Text",
  CellChangeTimes->{{3.657108259428939*^9, 3.657108283733782*^9}, {
   3.6571083463990917`*^9, 3.657108420218422*^9}}],
@@ -605,7 +605,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.657108192364422*^9, 3.6571082022236385`*^9}}],
 
 Cell["\<\
-Aux33 nos daria finalmente las n-uplas que resuelve el sistema.\
+Aux33 nos dar\[IAcute]a finalmente las n-uplas que resuelve el sistema.\
 \>", "Text",
  CellChangeTimes->{{3.65710821411086*^9, 3.657108251738126*^9}}]
 }, Open  ]],
@@ -841,7 +841,7 @@ Cell[BoxData[
   3.6571077824737015`*^9}, {3.65710911940285*^9, 3.6571091288252664`*^9}}],
 
 Cell["\<\
-Y finalmente En las funciones auxiliares usaremos la lista1 de elementos de F4\
+Y finalmente en las funciones auxiliares usaremos la lista1 de elementos de F4\
 \>", "Text",
  CellChangeTimes->{{3.6571091743617463`*^9, 3.657109203237397*^9}}]
 }, Open  ]]

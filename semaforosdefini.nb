@@ -24,8 +24,8 @@ Cell["Ejercicio 1:", "Title",
  CellChangeTimes->{{3.655219465233945*^9, 3.6552194885822806`*^9}}],
 
 Cell["\<\
-Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
-trtar el problema desde el punto de vista de un grafo, en nuestro casoes de \
+Se trata de encontrar todas las posibles disposiciones de sem\[AAcute]foros, vamos a \
+tratar el problema desde el punto de vista de un grafo, en nuestro caso es de \
 la forma:\
 \>", "Text",
  CellChangeTimes->{{3.6552195016260266`*^9, 3.655219540529252*^9}}],
@@ -92,8 +92,8 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell["\<\
-Observese que los vertices estan en la siguiente disposicion: x3,x1,x4,x2, 
-As\[IAcute] planteamos la solucion usando las raices cuartas de la unidad, en \
+Obs\[EAcute]rvese que los v\[EAcute]rtices est\[AAcute]n en la siguiente disposici\[OAcute]n: x3,x1,x4,x2, 
+As\[IAcute] planteamos la soluci\[OAcute]n usando las ra\[IAcute]ces cuartas de la unidad, en \
 este cuerpo, las dos posibles ecuaciones que deben cumplirse son:\
 \>", "Text",
  CellChangeTimes->{{3.655219562409503*^9, 3.6552195839157333`*^9}, {
@@ -121,7 +121,7 @@ Cell[BoxData[
  CellChangeTimes->{3.6552197371674986`*^9}],
 
 Cell["\<\
-Llamando a los vertices x1,x2,x3,x4, procedemos a calcular la base de \
+Llamando a los v\[EAcute]rtices x1,x2,x3,x4, procedemos a calcular la base de \
 Groebner asociada\
 \>", "Text",
  CellChangeTimes->{{3.6552197541214685`*^9, 3.6552197890284653`*^9}}],
@@ -190,11 +190,11 @@ Cell[BoxData[
 
 Cell["\<\
 Y estudiamos las posibles coloraciones:
-\t-de la primera y segunda ecuacion obtenemos 4 posibles soluciones
-\t-la segunda ecuacion nos determina x2, con tres posibles soluciones
-\t-las dos ultimas determinan x1 que puede tener 3 o 2 soluciones en funcion \
+\t-de la primera y segunda ecuaci\[OAcute]n obtenemos 4 posibles soluciones
+\t-la segunda ecuaci\[OAcute]n nos determina x2, con tres posibles soluciones
+\t-las dos \[UAcute]ltimas determinan x1 que puede tener 3 o 2 soluciones en funci\[OAcute]n \
 de si x3 o x4 son la misma raiz
-El numero total de soluciones ser\[AAcute] por tanto:\
+El n\[UAcute]mero total de soluciones ser\[AAcute] por tanto:\
 \>", "Text",
  CellChangeTimes->{{3.6552198433215704`*^9, 3.6552198778975477`*^9}, {
   3.6552201973177795`*^9, 3.6552202573248863`*^9}, {3.6552203872323837`*^9, 
@@ -222,9 +222,9 @@ Cell[BoxData["108"], "Output",
 }, Open  ]],
 
 Cell["\<\
-Aunque el numero de soluciones es 108 se puede tener en cuenta que algunas \
-solucion tienen ditribucion id\[EAcute]ntica, lo cual hace disminuir este \
-numero.\
+Aunque el n\[UAcute]mero de soluciones es 108 se puede tener en cuenta que algunas \
+solucion tienen ditribuci\[OAcute]n id\[EAcute]ntica, lo cual hace disminuir este \
+n\[UAcute]mero.\
 \>", "Text",
  CellChangeTimes->{{3.655220304477812*^9, 3.6552203544702997`*^9}}]
 }, Open  ]],
@@ -235,8 +235,8 @@ Cell["Ejercicio 2:", "Title",
  CellChangeTimes->{{3.6552203690585413`*^9, 3.6552203724613476`*^9}}],
 
 Cell["\<\
-Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
-trtar el problema desde el punto de vista de un grafo, en nuestro casoes de \
+Se trata de encontrar todas las posibles disposiciones de sem\[AAcute]foros, vamos a \
+tratar el problema desde el punto de vista de un grafo, en nuestro caso es de \
 la forma:\
 \>", "Text",
  CellChangeTimes->{3.655220780647962*^9}],
@@ -310,7 +310,7 @@ CONECTE CON OTROS VERTICES MATHEMATICA NO LO REPRESENTA\
  CellChangeTimes->{{3.655220800813398*^9, 3.6552208379640636`*^9}}],
 
 Cell["\<\
-As\[IAcute] planteamos la solucion usando las raices cuartas de la unidad, en \
+As\[IAcute] planteamos la soluci\[OAcute]n usando las ra\[IAcute]ces cuartas de la unidad, en \
 este cuerpo, las dos posibles ecuaciones que deben cumplirse son, las mismas \
 que en el ejercicio anterior, las recordamos con dos ejemplos:\
 \>", "Text",
@@ -430,9 +430,9 @@ Cell[BoxData["96"], "Output",
 }, Open  ]],
 
 Cell["\<\
-Aunque el numero de soluciones es 96 se puede tener en cuenta que algunas \
-solucion tienen ditribucion id\[EAcute]ntica, lo cual hace disminuir este \
-numero, podr\[IAcute]a tratar en este caso de dividirlo entre 4!, quedandonos \
+Aunque el n\[UAcute]mero de soluciones es 96 se puede tener en cuenta que algunas \
+soluciones tienen distribuci\[OAcute]n id\[EAcute]ntica, lo cual hace disminuir este \
+n\[UAcute]mero, podr\[IAcute]a tratar en este caso de dividirlo entre 4!, quedandonos \
 un resultado de 4 coloraciones esencialmente distintas\
 \>", "Text",
  CellChangeTimes->{{3.6552210554043913`*^9, 3.6552210868231883`*^9}, {
@@ -445,14 +445,14 @@ Cell["Ejercicio 3:", "Title",
  CellChangeTimes->{{3.6552211658497086`*^9, 3.6552211712060146`*^9}}],
 
 Cell["\<\
-Se trata de encontrar todas las posibles disposiciones de semaforos, vamos a \
-trtar el problema desde el punto de vista de un grafo, pero , en este caso \
+Se trata de encontrar todas las posibles disposiciones de sem\[AAcute]foros, vamos a \
+tratar el problema desde el punto de vista de un grafo, pero, en este caso \
 tenemos que uno de ellos debe durar el doble de los demas.
 Nos vamos a ayudar para ello de un vertice auxiliar, que llamaremos A\
 \[CloseCurlyQuote] y cumplira las mismas restricciones que A en el caso uno. \
-Lo uniremos tambien a A puesto que queremos considerar el caso que, tras \
+Lo uniremos tambi\[EAcute]n a A puesto que queremos considerar el caso que, tras \
 apagarse A, se encienda A\[CloseCurlyQuote], doblando el tiempo que este \
-semaforo est\[AAcute] encendido. Dibujamos el grafo:\
+sem\[AAcute]foro est\[AAcute] encendido. Dibujamos el grafo:\
 \>", "Text",
  CellChangeTimes->{{3.655223298951926*^9, 3.655223319003962*^9}, {
   3.655223455582729*^9, 3.6552235394804783`*^9}, {3.6552236490402718`*^9, 
@@ -644,8 +644,8 @@ Cell[BoxData["144"], "Output",
 }, Open  ]],
 
 Cell["\<\
-Podemos intentar reducir como en el caso anterior a traves de la division de \
-4!, quedandonos esencialmente 6 casos distintos.
+Podemos intentar reducir como en el caso anterior a traves de la divisi\[OAcute]n de \
+4!, qued\[AAcute]ndonos esencialmente 6 casos distintos.
 \
 \>", "Text",
  CellChangeTimes->{{3.655224258471753*^9, 3.655224289306408*^9}, 
@@ -666,15 +666,15 @@ Cell["Adendum:", "Subtitle",
 
 Cell["\<\
 Se podr\[IAcute]a haber intentado el ejercicio utlizando como cuerpo F4, en \
-este caso deberiamos definir las funciones como siguen:
+este caso deber\[IAcute]amos definir las funciones como siguen:
 
 f1[x_]:=x^4-x
 
 f2[x_,y_]:=x^3+x^2*y+x*y^2+y^3-1
 
 Calcular la base de Groebner igual que antes y evaluar cuando tenemos una \
-solucion (es decir, los polinomios de la base se anulan) evaluando todas las \
-posibles combinaciones de los elementos de F4, esto lo hariamos tal que as\
+soluci\[OAcute]n (es decir, los polinomios de la base se anulan) evaluando todas las \
+posibles combinaciones de los elementos de F4, esto lo har\[IAcute]amos tal que as\
 \[IAcute]:
 \t-Combinaciones de Elementos
 \t
